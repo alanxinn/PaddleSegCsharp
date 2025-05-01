@@ -16,7 +16,7 @@ namespace PaddleSegCsharp
             _p = c.CreatePredictor();
         }
 
-        public float[] Run(Mat img)
+        public int[] Run(Mat img)
         {
             Cv2.CvtColor(img, img, ColorConversionCodes.BGR2RGB);
             Mat mat = Normalize(img);
@@ -33,7 +33,7 @@ namespace PaddleSegCsharp
             }
             using (PaddleTensor output = predictor.GetOutputTensor(predictor.OutputNames[0]))
             {
-                float[] data = output.GetData<float>();
+                int[] data = output.GetData<int>();
                 int[] shape = output.Shape;
                 return data;
             }

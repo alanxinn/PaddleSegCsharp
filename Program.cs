@@ -12,7 +12,7 @@ Mat img = new Mat(@"test image path");
 Console.WriteLine("按下任意键开始推理");
 Console.ReadKey();
 
-float[] result = paddleSegPredictor.Run(img);
+var result = paddleSegPredictor.Run(img);
 
 Console.WriteLine("按下任意键结束");
 
